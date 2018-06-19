@@ -4,7 +4,7 @@ function init() {
 /* runs the functions that match the cards and end the game */
 $('.card').on('click', function() {
     if (ignoreClick === true) {
-        setTimeout(startClicking, 250);
+        setTimeout(startClicking, 100);
     }
     if (ignoreClick === false) {
     displayCard.call(this);
@@ -53,6 +53,10 @@ let ignoreClick = false;
 
 
 function startClicking() {
+    ignoreClick = false;
+};
+
+function stopClicking() {
     ignoreClick = false;
 };
 
@@ -142,11 +146,12 @@ function isItAMatch() {
             };
             if (thisCard.children[0].className !== previousCard.children[0].className) { /* if the previous card's class does NOT match this card's class */
                 ignoreClick = true;
-                setTimeout(removeMismatchedCards, 2000); /* wait two seconds then flip the cards face down */
+                setTimeout(removeMismatchedCards, 750); /* wait 3/4 of a second then flip the cards face down */
                 openCards.pop(); /* take them off the list of open cards */
                 openCards.pop();
                 addToMoves(); /* increase the number of moves */
                 updateCounter(); /* updates move number in the endgame modal */
+                setTimeout(startClicking, 250); // wait 1/4 of a second and then let users click
             }
         }
     };
