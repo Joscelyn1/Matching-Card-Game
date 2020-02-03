@@ -5,7 +5,7 @@ This classic card matching game is great fun.
 
 ## Installation
 
-See a live demo [here](https://joscelyn1.github.io/Matching-Card-Game/).
+See a live demo [here](https://josswritescode.github.io/Matching-Card-Game/).
 
 1. Download the zip file.
 2. Double click the index.html file.
